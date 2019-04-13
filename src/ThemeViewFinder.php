@@ -28,14 +28,13 @@ class ThemeViewFinder extends FileViewFinder
 
     protected function findInPaths($name, $paths)
     {
-        list($theme, $name) = explode(':', $name, 2);
+        $parts = explode(':', $name, 2);
 
-        if(!isset($name)){
-            $name = $theme;
-            $theme = $this->theme;
-        } else {
-            $this->theme = $theme;
+        if(isset($parts[1])){
+            $name = $parts[1];
+            $this->theme = $parts[0];
         }
+        $theme = $this->theme;
 
         if(!$this->files->exists($this->themePath)){
             throw new InvalidArgumentException("Theme [{$name}] not found.");

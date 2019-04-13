@@ -75,10 +75,10 @@ class Theme implements ThemeContract
      */
     public function view($view, $data = [], array $mergeData = []): ThemeContract
     {
-        list($theme, $name) = explode(':', $view, 2);
-        if (isset($name)) {
-            $this->theme = $theme;
-            $view = $name;
+        $parts = explode(':', $view, 2);
+        if (isset($parts[1])) {
+            $this->theme = $parts[0];
+            $view = $parts[1];
         }
         $this->view = $view;
         $this->data = $data;
