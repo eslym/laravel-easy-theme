@@ -13,7 +13,7 @@ use Illuminate\View\Factory;
 class ThemeServiceProvider extends ServiceProvider
 {
     public function boot(){
-        $this->app->bind('view.finder', function ($app) {
+        $this->app->bind('theme.finder', function ($app) {
             return new ThemeViewFinder($app['files'], config('theme.path', 'public/themes'));
         });
         $this->app->singleton('theme.view', function ($app){
