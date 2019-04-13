@@ -7,7 +7,7 @@
         "php": ">=7.1",
         "laravel/framework": ">=5.0 <6.0"
     },
-    "license": "MIT",
+    "license": "mit",
     "authors": [
         {
             "name": "Eslym",
