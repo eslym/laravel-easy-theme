@@ -14,7 +14,7 @@ class ThemeServiceProvider extends ServiceProvider
 {
     public function boot(){
         $this->app->bind('view.finder', function ($app) {
-            return new ThemeViewFinder($app['files'], config('theme.path'));
+            return new ThemeViewFinder($app['files'], config('theme.path', 'public/themes'));
         });
         $this->app->singleton('theme.view', function ($app){
             $resolver = $app['view.engine.resolver'];
