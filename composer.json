@@ -28,7 +28,7 @@
                 "Eslym\\EasyTheme\\Providers\\ThemeServiceProvider"
             ],
             "aliases": {
-                "Theme": "Eslym\\EasyTheme\\Theme"
+                "Theme": "Eslym\\EasyTheme\\Facades\\Theme"
             }
         }
     }
