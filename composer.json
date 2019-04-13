@@ -2,7 +2,7 @@
     "name": "eslym/laravel-easy-theme",
     "description": "Easy Theme System For Laravel",
     "type": "library",
-    "version": "beta0.1",
+    "version": "0.1beta",
     "require": {
         "php": ">=7.1",
         "laravel/framework": ">=5.0 <6.0"
@@ -16,7 +16,7 @@
     ],
     "autoload": {
         "psr-4": {
-            "Eslym\\EasyTheme": "src/"
+            "Eslym\\EasyTheme\\": "src/"
         },
         "files": [
             "helpers/helper.php"
