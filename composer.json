@@ -21,5 +21,15 @@
         "files": [
             "helpers/helper.php"
         ]
+    },
+    "extra": {
+        "laravel":{
+            "providers": [
+                "Eslym\\EasyTheme\\Providers\\ThemeServiceProvider"
+            ],
+            "aliases": {
+                "Theme": "Eslym\\EasyTheme\\Theme"
+            }
+        }
     }
 }
