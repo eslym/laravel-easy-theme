@@ -21,3 +21,21 @@ composer require eslym/laravel-easy-theme
 ```bash
 php artisan vendor:publish --provider="Eslym\EasyTheme\Providers\ThemeServiceProvider" --tag="config"
 ```
+
+# How to use
+## Structure
+```
+public/
+└── themes/
+     ├── default
+     │   └── index.blade.php
+     └── theme_b
+          └── index.blade.php
+```
+## Code
+```php
+Route::get('/', function(){
+    return Theme::view('index')
+        ->response();
+});
+```
