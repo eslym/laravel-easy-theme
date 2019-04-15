@@ -49,6 +49,16 @@ interface Theme
     public function url(string $url, $secure = null): string;
 
     /**
+     * Get the translation for a given key.
+     *
+     * @param  string  $key
+     * @param  array   $replace
+     * @param  string  $locale
+     * @return string|array|null
+     */
+    public function trans($key, array $replace = [], $locale = null);
+
+    /**
      * Get current theme.
      * @return string
      */

@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Eslym\EasyTheme;
+namespace Eslym\EasyTheme\Tools;
 
 
 use Illuminate\Filesystem\Filesystem;
@@ -20,10 +20,13 @@ class ThemeViewFinder extends FileViewFinder
      */
     protected $theme;
 
-    public function __construct(Filesystem $files, string $themePath, array $extensions = null)
+    protected $themeViews;
+
+    public function __construct(Filesystem $files, string $themePath, string $themeViews, array $extensions = null)
     {
         parent::__construct($files, [], $extensions);
         $this->themePath = $themePath;
+        $this->themeViews = $themeViews;
     }
 
     protected function findInPaths($name, $paths)
@@ -40,7 +43,7 @@ class ThemeViewFinder extends FileViewFinder
             throw new InvalidArgumentException("Theme [{$name}] not found.");
         }
 
-        $path = "{$this->themePath}/{$theme}/views";
+        $path = "{$this->themePath}/{$theme}/{$this->themeViews}";
         foreach ($this->getPossibleViewFiles($name) as $file) {
             if ($this->files->exists($viewPath = $path.'/'.$file)) {
                 return $viewPath;

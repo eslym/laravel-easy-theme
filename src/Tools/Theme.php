@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Eslym\EasyTheme;
+namespace Eslym\EasyTheme\Tools;
 
 use Eslym\EasyTheme\Contracts\Theme as ThemeContract;
 use Illuminate\Contracts\Container\BindingResolutionException;
@@ -114,5 +114,20 @@ class Theme implements ThemeContract
     public function getTheme(): string
     {
         return $this->theme ?? config('theme.default');
+    }
+
+    /**
+     * Get the translation for a given key.
+     *
+     * @param string $key
+     * @param array $replace
+     * @param string $locale
+     * @return string|array|null
+     */
+    public function trans($key, array $replace = [], $locale = null)
+    {
+        return app('theme.translator')->has("{$this->theme}::$key", $locale) ?
+            app('theme.translator')->trans("{$this->theme}::$key", $replace, $locale):
+            app('translator')->trans($key, $replace, $locale);
     }
 }
