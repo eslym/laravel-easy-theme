@@ -104,7 +104,9 @@ class Theme implements ThemeContract
      * @return string
      */
     public function url(string $url, $secure = null): string{
-        return url(config('theme.url', 'themes'), explode('/', ltrim($url, "/")), $secure);
+        $path = explode('/', ltrim($url, "/"));
+        array_unshift($path, $this->theme);
+        return url(config('theme.url', 'themes'), $path, $secure);
     }
 
     /**
