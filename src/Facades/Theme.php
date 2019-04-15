@@ -18,6 +18,7 @@ use Eslym\EasyTheme\Contracts\Theme as ThemeContract;
  * @method static Response response(int $status = 200, array $headers = [])
  * @method static ThemeContract view(string|string[] $view, array|Arrayable $data, array $mergeData)
  * @method static ThemeContract theme(?string $theme);
+ * @method static string|array|null trans($key, array $replace = [], $locale = null)
  * @method static string asset();
  * @method static string getTheme();
  */
