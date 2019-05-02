@@ -82,7 +82,7 @@ class Theme implements ThemeContract
         }
         $this->view = $view;
         $this->data = $data;
-        $this->mergeData = array_merge(['theme'=>$this], $mergeData);
+        $this->mergeData = array_merge(['theme' => $this, 'errors' => session('errors')], $mergeData);
         return $this;
     }
 
